@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-export default function ListCards({cards, setStatus}) {
+export default function ListCards({cards, setStatus, editItem}) {
   const [isLoading, setIsLoading] = useState(true)
 
 
@@ -16,11 +16,6 @@ export default function ListCards({cards, setStatus}) {
     setStatus(remove)
     return localStorage.setItem('listCards', JSON.stringify(remove))
     
-  }
-
-  const editItem = (index) => {
-    const edit = cards[index]
-    console.log(edit)
   }
 
   return (
