@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 export default function ListCards({cards, setStatus, editItem}) {
   const [isLoading, setIsLoading] = useState(true)
+  const [optionCard, setOptionCard] = useState(false)
 
 
   useEffect(() => {
@@ -18,6 +19,11 @@ export default function ListCards({cards, setStatus, editItem}) {
     
   }
 
+  const toggleActive = () => {
+    const isActive = !optionCard;
+    setOptionCard(isActive)
+  }
+
   return (
     <div>
       {!isLoading && 
@@ -28,17 +34,28 @@ export default function ListCards({cards, setStatus, editItem}) {
           <p>{item.payment}</p>
           <p>{item.price}</p>
           <button 
-            type="button"
-            onClick={ () => removeItem(index) }
-            >
-              X
-            </button>
-            <button 
-            type="button"
-            onClick={ () => editItem(index) }
-            >
-              EDIT
-            </button>
+              type="button"
+              onClick={ () => toggleActive() }
+          >
+            :
+          </button>
+          {optionCard ? (
+
+            <div>
+              <button 
+                type="button"
+                onClick={ () => removeItem(index) }
+              >
+                X
+              </button>
+              <button 
+                type="button"
+                onClick={ () => editItem(index) }
+              >
+                EDIT
+              </button>
+            </div>
+          ) : null}
         </div>
       )}
     </div>
