@@ -97,20 +97,26 @@ function WalletForm() {
           options={['Salário', 'Alimentação', 'Transporte', 'Saúde', 'Lazer', 'Compras']}
           setStatus={ setCategory }
         />
-        <button
-          type="submit"
-          disabled={ isValid }
-          onClick={ handleSubmit }
-        >
-          ADICIONAR
-        </button>
-        <button
+        {modeEditCard ? (
+          <button
           type="submit"
           disabled={ isValid }
           onClick={ handleSubmitEdit }
-        >
-          EDITAR
-        </button>
+          >
+            EDITAR
+          </button>
+          )
+          : (
+          <button
+            type="submit"
+            disabled={ isValid }
+            onClick={ handleSubmit }
+          >
+            ADICIONAR
+          </button>
+          )
+        }
+        
       </form>
       <ListCards cards={cards} setStatus={setCards} editItem={editItem}/>
     </main>
