@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import Select from './Select'
 
-export default function ListCards({cards, setStatus, editItem}) {
+export default function ListCards({cards, setStatus, editItem, setOptionCard, optionCard}) {
   const [isLoading, setIsLoading] = useState(true)
-  const [optionCard, setOptionCard] = useState(false)
   const [payment, setPayment] = useState('')
   const [category, setCategory] = useState('')
   const [selectOptionCard, setSelectOptionCard] = useState()
@@ -19,6 +18,7 @@ export default function ListCards({cards, setStatus, editItem}) {
     const remove = cards.filter((item, index) => index !== indexParam)
       
     setStatus(remove)
+    setOptionCard(false)
     return localStorage.setItem('listCards', JSON.stringify(remove))
     
   }

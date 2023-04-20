@@ -11,6 +11,8 @@ function WalletForm() {
   const [cards, setCards] = useState([])
   const [modeEditCard, setModeEditCard] = useState(false)
   const [positionInList, setPositionInList] = useState(null)
+  const [optionCard, setOptionCard] = useState(false)
+
 
   useEffect(() => {
     const getLocalStorage = JSON.parse(localStorage.getItem('listCards'))
@@ -64,6 +66,7 @@ function WalletForm() {
     setDescription('')
     setCategory('Salário')
     setModeEditCard(false)
+    setOptionCard(false)
   }
 
   const isValid = price.length <= 0 || description.length <= 0
@@ -118,7 +121,13 @@ function WalletForm() {
         }
         
       </form>
-      <ListCards cards={cards} setStatus={setCards} editItem={editItem}/>
+      <ListCards 
+        cards={cards} 
+        setStatus={setCards} 
+        editItem={editItem}
+        optionCard={optionCard}
+        setOptionCard={setOptionCard}
+      />
     </main>
 
   )
