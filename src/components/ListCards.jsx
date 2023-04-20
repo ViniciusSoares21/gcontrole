@@ -6,7 +6,7 @@ export default function ListCards({cards, setStatus, editItem}) {
   const [optionCard, setOptionCard] = useState(false)
   const [payment, setPayment] = useState('')
   const [category, setCategory] = useState('')
-
+  const [selectOptionCard, setSelectOptionCard] = useState()
 
 
   useEffect(() => {
@@ -23,9 +23,10 @@ export default function ListCards({cards, setStatus, editItem}) {
     
   }
 
-  const toggleActive = () => {
+  const toggleActive = (index) => {
     const isActive = !optionCard;
     setOptionCard(isActive)
+    setSelectOptionCard(index)
   }
 
   const clearList = () => {
@@ -46,14 +47,14 @@ export default function ListCards({cards, setStatus, editItem}) {
           placeholder={'PAGAMENTO'}
           name={ 'payment' }
           value={ payment }
-          options={['Cartão de crédito', 'Cartão de débito', 'Dinheiro']}
+          options={['Cartão de crédito', 'Cartão de débito', 'Dinheiro', 'Boleto', 'TODOS']}
           setStatus={ setPayment }
         />
         <Select
           placeholder={'CATEGORIA'}
           name={ 'category' }
           value={ category }
-          options={['Salário', 'Alimentação', 'Transporte', 'Saúde', 'Lazer', 'Compras']}
+          options={['Salário', 'Alimentação', 'Transporte', 'Saúde', 'Lazer', 'Compras', 'TODOS']}
           setStatus={ setCategory }
         />
       </div>
@@ -66,11 +67,11 @@ export default function ListCards({cards, setStatus, editItem}) {
           <p>{item.price}</p>
           <button 
               type="button"
-              onClick={ () => toggleActive() }
+              onClick={ () => toggleActive(index) }
           >
             :
           </button>
-          {optionCard ? (
+          {optionCard && index === selectOptionCard ? (
 
             <div>
               <button 

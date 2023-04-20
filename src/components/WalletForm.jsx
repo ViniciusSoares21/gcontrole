@@ -81,7 +81,7 @@ function WalletForm() {
         <Select
           name={ 'payment' }
           value={ payment }
-          options={['Cartão de crédito', 'Cartão de débito', 'Dinheiro']}
+          options={['Cartão de crédito', 'Cartão de débito', 'Dinheiro', 'Boleto']}
           setStatus={ setPayment }
         />
         <Input 
