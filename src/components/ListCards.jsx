@@ -39,14 +39,16 @@ export default function ListCards({cards, setStatus, editItem, setOptionCard, op
   const filterListByPayment = () => {
     if (payment) {
       const filterListCardsPayment = cards.filter((item) => item.payment === payment);
+
       if (filterListCardsPayment.length > 0 && category !== 'TODOS' && category) {
         const filterListCardsCategory = filterListCardsPayment.filter(
           (item) => item.category === category);
           return setFilterList(filterListCardsCategory)
       }
-      return setFilterList(filterListCardsPayment);
+      if (payment !== 'TODOS') {
+        return setFilterList(filterListCardsPayment);
+      }
     }
-    return setFilterList(cards)
   }
 
   const filterListByCategory = () => {
@@ -60,7 +62,9 @@ export default function ListCards({cards, setStatus, editItem, setOptionCard, op
 
           return setFilterList(filterListCardsPayment);
       }
-      return setFilterList(filterListCardsCategory);
+      if (category !== 'TODOS') {
+        return setFilterList(filterListCardsCategory);
+      }
     }
   }
 
