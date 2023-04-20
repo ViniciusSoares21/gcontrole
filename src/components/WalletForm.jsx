@@ -35,6 +35,7 @@ function WalletForm() {
     setDescription('')
     setCategory('Salário')
   }
+  
   const editItem = (index) => {
     const edit = cards[index]
     setModeEditCard(true)

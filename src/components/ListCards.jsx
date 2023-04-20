@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import Select from './Select'
 
@@ -6,33 +7,70 @@ export default function ListCards({cards, setStatus, editItem, setOptionCard, op
   const [payment, setPayment] = useState('')
   const [category, setCategory] = useState('')
   const [selectOptionCard, setSelectOptionCard] = useState()
+  const [filterList, setFilterList] = useState([])
 
 
   useEffect(() => {
-    if (cards !== null) {
-      setIsLoading(false)
+    if (filterList !== null) {
+      setIsLoading(false);
     }
   }, [cards])
 
   const removeItem = (indexParam) => {
-    const remove = cards.filter((item, index) => index !== indexParam)
+    const remove = cards.filter((item, index) => index !== indexParam);
       
-    setStatus(remove)
-    setOptionCard(false)
-    return localStorage.setItem('listCards', JSON.stringify(remove))
+    setStatus(remove);
+    setOptionCard(false);
+    return localStorage.setItem('listCards', JSON.stringify(remove));
     
   }
 
   const toggleActive = (index) => {
     const isActive = !optionCard;
-    setOptionCard(isActive)
-    setSelectOptionCard(index)
+    setOptionCard(isActive);
+    setSelectOptionCard(index);
   }
 
   const clearList = () => {
-    localStorage.removeItem('listCards')
-    setStatus([])
+    localStorage.removeItem('listCards');
+    setStatus([]);
   }
+
+  const filterListByPayment = () => {
+    if (payment) {
+      const filterListCardsPayment = cards.filter((item) => item.payment === payment);
+      if (filterListCardsPayment.length > 0 && category !== 'TODOS' && category) {
+        const filterListCardsCategory = filterListCardsPayment.filter(
+          (item) => item.category === category);
+          return setFilterList(filterListCardsCategory)
+      }
+      return setFilterList(filterListCardsPayment);
+    }
+    return setFilterList(cards)
+  }
+
+  const filterListByCategory = () => {
+    if (category) {
+      const filterListCardsCategory = cards.filter(
+        (item) => item.category === category);
+
+      if (filterListCardsCategory.length > 0 && payment !== 'TODOS' && payment) {
+          const filterListCardsPayment = filterListCardsCategory.filter(
+            (item) => item.payment === payment);
+
+          return setFilterList(filterListCardsPayment);
+      }
+      return setFilterList(filterListCardsCategory);
+    }
+  }
+
+  useEffect(() => {
+    filterListByPayment()
+    filterListByCategory()
+    if ((!category || category === 'TODOS') && (!payment || payment === 'TODOS')) {
+      setFilterList(cards)
+    }
+  }, [payment, cards, category])
 
   return (
     <div>
@@ -59,7 +97,7 @@ export default function ListCards({cards, setStatus, editItem, setOptionCard, op
         />
       </div>
       {!isLoading && 
-        cards.map((item, index) => 
+        filterList.map((item, index) => 
         <div key={item.category + item.price + index}>
           <p>{item.category}</p>
           <p>{item.description}</p>
