@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react'
+import Select from './Select'
 
 export default function ListCards({cards, setStatus, editItem}) {
   const [isLoading, setIsLoading] = useState(true)
   const [optionCard, setOptionCard] = useState(false)
+  const [payment, setPayment] = useState('')
+  const [category, setCategory] = useState('')
+
 
 
   useEffect(() => {
@@ -24,8 +28,35 @@ export default function ListCards({cards, setStatus, editItem}) {
     setOptionCard(isActive)
   }
 
+  const clearList = () => {
+    localStorage.removeItem('listCards')
+    setStatus([])
+  }
+
   return (
     <div>
+      <div>
+        <button
+          type="button"
+          onClick={ () => clearList() }
+        >
+          X LIMPAR
+        </button>
+        <Select
+          placeholder={'PAGAMENTO'}
+          name={ 'payment' }
+          value={ payment }
+          options={['Cartão de crédito', 'Cartão de débito', 'Dinheiro']}
+          setStatus={ setPayment }
+        />
+        <Select
+          placeholder={'CATEGORIA'}
+          name={ 'category' }
+          value={ category }
+          options={['Salário', 'Alimentação', 'Transporte', 'Saúde', 'Lazer', 'Compras']}
+          setStatus={ setCategory }
+        />
+      </div>
       {!isLoading && 
         cards.map((item, index) => 
         <div key={item.category + item.price + index}>
