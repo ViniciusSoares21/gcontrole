@@ -5,7 +5,7 @@ function Dashboard() {
   const { cards } = useContext(ControlContext);
   const [revenue, setRevenue] = useState('0,00');
   const [expenses, setExpenses] = useState('0,00');
-  
+
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem('listCards'));
     if (data) {
@@ -20,6 +20,8 @@ function Dashboard() {
           const price = parseFloat(cur.price.replace(',', '.'));
           return (parseFloat(acc) + price).toFixed(2).replace('.', ',');
       }, 0);
+
+      console.log(calculatorRevenue)
   
       setRevenue(calculatorRevenue);
       setExpenses(calculatorExpenses);

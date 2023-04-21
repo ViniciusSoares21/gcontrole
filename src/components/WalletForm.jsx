@@ -57,7 +57,7 @@ function WalletForm() {
       category
     }
 
-    const data = cards
+    const data = [...cards]
     data.splice(positionInList, 1, card)
 
     setCards(data)
@@ -124,8 +124,6 @@ function WalletForm() {
         
       </form>
       <ListCards 
-        cards={cards} 
-        setStatus={setCards} 
         editItem={editItem}
         optionCard={optionCard}
         setOptionCard={setOptionCard}

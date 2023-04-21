@@ -1,8 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Select from './Select'
+import ControlContext from '../context/ControlContext'
 
-export default function ListCards({cards, setStatus, editItem, setOptionCard, optionCard}) {
+export default function ListCards({editItem, setOptionCard, optionCard}) {
+  const { cards, setCards } = useContext(ControlContext)
   const [isLoading, setIsLoading] = useState(true)
   const [payment, setPayment] = useState('')
   const [category, setCategory] = useState('')
@@ -19,7 +21,7 @@ export default function ListCards({cards, setStatus, editItem, setOptionCard, op
   const removeItem = (indexParam) => {
     const remove = cards.filter((item, index) => index !== indexParam);
       
-    setStatus(remove);
+    setCards(remove);
     setOptionCard(false);
     return localStorage.setItem('listCards', JSON.stringify(remove));
     
@@ -33,7 +35,7 @@ export default function ListCards({cards, setStatus, editItem, setOptionCard, op
 
   const clearList = () => {
     localStorage.removeItem('listCards');
-    setStatus([]);
+    setCards([]);
   }
 
   const filterListByPayment = () => {
