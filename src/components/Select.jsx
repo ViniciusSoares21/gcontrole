@@ -1,8 +1,9 @@
 import React from 'react'
 
-function Select({ setStatus, value, options, name, placeholder }) {
+function Select({ setStatus, value, options, name, placeholder, className }) {
   return (
     <select
+      className={className}
       name={ name }
       value={ value }
       onChange={ ({ target }) => setStatus(target.value) }

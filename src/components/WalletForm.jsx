@@ -3,6 +3,7 @@ import ListCards from './ListCards'
 import Input from './Input'
 import Select from './Select'
 import ControlContext from '../context/ControlContext'
+import styles from './WalletForm.module.css'
 
 function WalletForm() {
   const { setCards, cards } = useContext(ControlContext);
@@ -75,54 +76,62 @@ function WalletForm() {
   
   return (
     <main>
-      <form>
-        <Input 
-          place={'valor'}
-          type={'text'}
-          name={'price'}
-          value={price}
-          setStatus={setPrice}
-        />
-        <Select
-          name={ 'payment' }
-          value={ payment }
-          options={['Cartão de crédito', 'Cartão de débito', 'Dinheiro', 'Boleto']}
-          setStatus={ setPayment }
-        />
-        <Input 
-          place={'Descrição'}
-          type={'text'}
-          name={'description'}
-          value={description}
-          setStatus={setDescription}
-        />
-        <Select
-          name={ 'category' }
-          value={ category }
-          options={['Salário', 'Alimentação', 'Transporte', 'Saúde', 'Lazer', 'Compras']}
-          setStatus={ setCategory }
-        />
-        {modeEditCard ? (
-          <button
-          type="submit"
-          disabled={ isValid }
-          onClick={ handleSubmitEdit }
-          >
-            EDITAR
-          </button>
-          )
-          : (
-          <button
+      <div className={styles.container}>
+        <form className={styles.subContainer}>
+          <Input
+            className={styles.inputsPriceAndCategory}
+            place={'valor'}
+            type={'text'}
+            name={'price'}
+            value={price}
+            setStatus={setPrice}
+          />
+          <Select
+            className={styles.inputsPayment}
+            name={ 'payment' }
+            value={ payment }
+            options={['Cartão de crédito', 'Cartão de débito', 'Dinheiro', 'Boleto']}
+            setStatus={ setPayment }
+          />
+          <Input
+            className={styles.inputCategory}
+            place={'Descrição'}
+            type={'text'}
+            name={'description'}
+            value={description}
+            setStatus={setDescription}
+          />
+          <Select
+            className={styles.inputsPriceAndCategory}
+            name={ 'category' }
+            value={ category }
+            options={['Salário', 'Alimentação', 'Transporte', 'Saúde', 'Lazer', 'Compras']}
+            setStatus={ setCategory }
+          />
+          {modeEditCard ? (
+            <button
+            className={styles.btnEdit}
             type="submit"
             disabled={ isValid }
-            onClick={ handleSubmit }
-          >
-            ADICIONAR
-          </button>
-          )
-        }
-        
-      </form>
+            onClick={ handleSubmitEdit }
+            >
+              EDITAR
+            </button>
+            )
+            : (
+            <button
+              className={styles.btnAdd}
+              type="submit"
+              disabled={ isValid }
+              onClick={ handleSubmit }
+            >
+              ADICIONAR
+            </button>
+            )
+          }
+          
+        </form>
+      </div>
       <ListCards 
         editItem={editItem}
         optionCard={optionCard}

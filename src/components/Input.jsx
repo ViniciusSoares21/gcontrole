@@ -1,8 +1,9 @@
 import React from 'react'
 
-function Input({place, type, name, value, setStatus }) {
+function Input({place, type, name, value, setStatus, className }) {
   return (
     <input
+      className={className}
       placeholder={ place }
       type={ type }
       name={ name }
