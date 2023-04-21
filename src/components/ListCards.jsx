@@ -4,7 +4,7 @@ import Select from './Select'
 import ControlContext from '../context/ControlContext'
 
 export default function ListCards({editItem, setOptionCard, optionCard}) {
-  const { cards, setCards } = useContext(ControlContext)
+  const { cards, setCards, setExpenses, setRevenue } = useContext(ControlContext)
   const [isLoading, setIsLoading] = useState(true)
   const [payment, setPayment] = useState('')
   const [category, setCategory] = useState('')
@@ -36,6 +36,8 @@ export default function ListCards({editItem, setOptionCard, optionCard}) {
   const clearList = () => {
     localStorage.removeItem('listCards');
     setCards([]);
+    setExpenses('0,00');
+    setRevenue('0,00');
   }
 
   const filterListByPayment = () => {

@@ -1,10 +1,8 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useEffect, useContext } from 'react'
 import ControlContext from '../context/ControlContext'
 
 function Dashboard() {
-  const { cards } = useContext(ControlContext);
-  const [revenue, setRevenue] = useState('0,00');
-  const [expenses, setExpenses] = useState('0,00');
+  const { cards, setExpenses, setRevenue, revenue, expenses } = useContext(ControlContext);
 
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem('listCards'));
@@ -20,8 +18,6 @@ function Dashboard() {
           const price = parseFloat(cur.price.replace(',', '.'));
           return (parseFloat(acc) + price).toFixed(2).replace('.', ',');
       }, 0);
-
-      console.log(calculatorRevenue)
   
       setRevenue(calculatorRevenue);
       setExpenses(calculatorExpenses);
