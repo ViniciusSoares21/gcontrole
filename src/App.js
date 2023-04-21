@@ -1,10 +1,13 @@
+import ControlProvider from "./context/ControlProvider";
 import ManagementControl from "./page/ManagementControl";
 
 function App() {
   return (
-    <div>
-      <ManagementControl />
-    </div>
+    <ControlProvider>
+      <div>
+        <ManagementControl />
+      </div>
+    </ControlProvider>
   );
 }
 

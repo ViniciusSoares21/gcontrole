@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import ListCards from './ListCards'
 import Input from './Input'
 import Select from './Select'
+import ControlContext from '../context/ControlContext'
 
 function WalletForm() {
-  const [price, setPrice] = useState('')
-  const [payment, setPayment] = useState('Cartão de crédito')
-  const [description, setDescription] = useState('')
-  const [category, setCategory] = useState('Salário')
-  const [cards, setCards] = useState([])
-  const [modeEditCard, setModeEditCard] = useState(false)
-  const [positionInList, setPositionInList] = useState(null)
-  const [optionCard, setOptionCard] = useState(false)
+  const { setCards, cards } = useContext(ControlContext);
+  const [price, setPrice] = useState('');
+  const [payment, setPayment] = useState('Cartão de crédito');
+  const [description, setDescription] = useState('');
+  const [category, setCategory] = useState('Salário');
+  const [modeEditCard, setModeEditCard] = useState(false);
+  const [positionInList, setPositionInList] = useState(null);
+  const [optionCard, setOptionCard] = useState(false);
 
 
   useEffect(() => {
