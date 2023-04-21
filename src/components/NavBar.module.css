@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  gap: 191px;
+  margin-left: 18px;
+  margin-top: 20px;
+}
+
+.line {
+  background-color: rgba(35, 147, 247, 1);
+  height: 4px;
+  width: 100%;
+}

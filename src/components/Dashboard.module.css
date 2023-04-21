@@ -1,0 +1,63 @@
+.container {
+  display: flex;
+  width: 369px;
+  height: 64px;
+  margin-left: 16px;
+  margin-top: 18px;
+  margin-bottom: 20px;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.12);
+  border-radius: 5px;
+}
+
+.subContainer {
+  display: flex;
+  margin-left: 10px;
+  height: 40px;
+  width: 348px;
+}
+
+.lineItems {
+  display: flex;
+  gap: 11px;
+}
+
+.imgGraphUp {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(204, 236, 221, 1);
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.imgGraphDown {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  background-color: rgb(236, 219, 219);
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.text {
+  color: rgba(177, 177, 177, 1);
+  font-weight: 500;
+}
+
+.textNumberUp {
+  font-weight: bold;
+  color: rgba(55, 216, 110, 1);
+  margin-left: 1px;
+  width: 160px;
+}
+
+.textNumberDown {
+  width: 105.5px;
+  font-weight: bold;
+  color: red;
+  margin-left: 1.5px;
+}

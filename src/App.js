@@ -1,5 +1,6 @@
 import ControlProvider from "./context/ControlProvider";
 import ManagementControl from "./page/ManagementControl";
+import './App.css'
 
 function App() {
   return (
