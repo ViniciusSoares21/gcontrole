@@ -6,6 +6,8 @@ import styles from './ListCards.module.css'
 import imgMoneySvg from '../images/payments_FILL0_wght400_GRAD0_opsz48.svg'
 import imgThreeDots from '../images/three-dots-vertical.svg'
 import imgAddSvg from '../images/add_FILL0_wght400_GRAD0_opsz48.svg'
+import imgTrashSvg from '../images/trash-fill.svg'
+import imgPencilSquare from '../images/pencil-square.svg'
 
 
 export default function ListCards({editItem, setOptionCard, optionCard}) {
@@ -132,6 +134,7 @@ export default function ListCards({editItem, setOptionCard, optionCard}) {
             </div>
             <p className={styles.textPrice}>{` R$ ${item.price}`}</p>
             <button
+                style={{ backgroundColor: 'rgb(240, 243, 248)' }}
                 type="button"
                 onClick={ (event) => toggleActive(index, event) }
             >
@@ -140,6 +143,10 @@ export default function ListCards({editItem, setOptionCard, optionCard}) {
             {optionCard && index === selectOptionCard ? (
               <div
                 style={{
+                  alignContent: 'center',
+                  alignItems: 'center',
+                  justifyContent: 'space-evenly',
+                  display: 'flex',
                   position: 'fixed',
                   top: positionY,
                   left: 335,
@@ -150,17 +157,19 @@ export default function ListCards({editItem, setOptionCard, optionCard}) {
                   height: '32px',
                 }}
               >
-                <button 
+                <button
+                  style={{ backgroundColor: 'white', marginTop: '4px' }}
                   type="button"
                   onClick={ () => removeItem(index) }
                 >
-                  X
+                  <img src={imgTrashSvg} alt="trash" />
                 </button>
-                <button 
+                <button
+                  style={{ backgroundColor: 'white', marginTop: '4px'}}
                   type="button"
                   onClick={ () => editItem(index) }
                 >
-                  EDIT
+                  <img src={imgPencilSquare} alt="Pencil Square" />
                 </button>
               </div>
             ) : null}
