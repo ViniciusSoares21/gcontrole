@@ -1,0 +1,108 @@
+.containerFilterBtn {
+  display: flex;
+  width: 370px;
+  height: 68px;
+  margin-left: 16px;
+  margin-top: 18px;
+  margin-bottom: 20px;
+  align-items: center;
+  background-color: white;
+  justify-content: space-evenly;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.12);
+  border-radius: 5px;
+}
+
+.btnPayment {
+  background-color: rgba(35, 147, 247, 1);
+  width: 122px;
+  height: 44px;
+  border-radius: 5px;
+  color: white;
+  font-weight: 900;
+}
+
+.btnCategory {
+  background-color: rgba(35, 147, 247, 1);
+  width: 116px;
+  height: 44px;
+  border-radius: 5px;
+  color: white;
+  font-weight: 900;
+}
+
+.btnClear {
+  background-color: rgba(35, 147, 247, 1);
+  width: 82px;
+  height: 44px;
+  border-radius: 5px;
+  color: white;
+  font-weight: 900;
+}
+
+.containerList {
+  display: flex;
+  width: 370px;
+  height: 330px;
+  flex-direction: column;
+  margin-left: 16px;
+  margin-top: 18px;
+  margin-bottom: 20px;
+  background-color: white;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.12);
+  border-radius: 5px;
+}
+
+.subContainer {
+  background-color: rgb(240, 243, 248);
+  border-radius: 8px;
+  display: flex;
+  margin-left: 12px;
+  margin-top: 12px;
+  height: 47px;
+  width: 350px;
+  align-items: center;
+}
+
+.imgMoney {
+  margin-left: 10px;
+  margin-right: 10px;
+  display: flex;
+  width: 31px;
+  height: 30px;
+  background-color: rgba(204, 236, 221, 1);
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.20);
+}
+
+.textPayment {
+  color: black;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.textCategory{
+  font-weight: 450;
+  font-size: 12px;
+  width: 170px;
+  color: rgb(178, 178, 181);
+  margin-left: 1px;
+  margin-bottom: 2px;
+}
+
+.textPrice {
+  color: black;
+  font-weight: 600;
+  font-size: 15px;
+  width: 90px;
+}
+
+.btnOptionCard {
+  background-color: red;
+}
+
+.backGroundIndicatorPositiveAndNegative {
+  margin-left: 5px;
+  margin-right: 2px;
+}

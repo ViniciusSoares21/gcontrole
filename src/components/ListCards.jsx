@@ -2,6 +2,11 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Select from './Select'
 import ControlContext from '../context/ControlContext'
+import styles from './ListCards.module.css'
+import imgMoneySvg from '../images/payments_FILL0_wght400_GRAD0_opsz48.svg'
+import imgThreeDots from '../images/three-dots-vertical.svg'
+import imgAddSvg from '../images/add_FILL0_wght400_GRAD0_opsz48.svg'
+
 
 export default function ListCards({editItem, setOptionCard, optionCard}) {
   const { cards, setCards, setExpenses, setRevenue } = useContext(ControlContext)
@@ -82,14 +87,16 @@ export default function ListCards({editItem, setOptionCard, optionCard}) {
 
   return (
     <div>
-      <div>
+      <div className={styles.containerFilterBtn}>
         <button
+        className={styles.btnClear}
           type="button"
           onClick={ () => clearList() }
         >
           X LIMPAR
         </button>
         <Select
+          className={styles.btnPayment}
           placeholder={'PAGAMENTO'}
           name={ 'payment' }
           value={ payment }
@@ -97,6 +104,7 @@ export default function ListCards({editItem, setOptionCard, optionCard}) {
           setStatus={ setPayment }
         />
         <Select
+          className={styles.btnCategory}
           placeholder={'CATEGORIA'}
           name={ 'category' }
           value={ category }
@@ -104,38 +112,47 @@ export default function ListCards({editItem, setOptionCard, optionCard}) {
           setStatus={ setCategory }
         />
       </div>
-      {!isLoading && 
-        filterList.map((item, index) => 
-        <div key={item.category + item.price + index}>
-          <p>{item.category}</p>
-          <p>{item.description}</p>
-          <p>{item.payment}</p>
-          <p>{item.price}</p>
-          <button 
-              type="button"
-              onClick={ () => toggleActive(index) }
-          >
-            :
-          </button>
-          {optionCard && index === selectOptionCard ? (
-
-            <div>
-              <button 
-                type="button"
-                onClick={ () => removeItem(index) }
-              >
-                X
-              </button>
-              <button 
-                type="button"
-                onClick={ () => editItem(index) }
-              >
-                EDIT
-              </button>
+      <div className={styles.containerList}>
+        {!isLoading && 
+          filterList.map((item, index) => 
+          <div className={styles.subContainer} key={item.category + item.price + index}>
+            <div className={styles.imgMoney}>
+              <img src={imgMoneySvg} alt="money" />
             </div>
-          ) : null}
-        </div>
-      )}
+            <div>
+              <p className={styles.textPayment}>{item.category}</p>
+              <p className={styles.textCategory}>{item.description}</p>
+            </div>
+            <div className={styles.backGroundIndicatorPositiveAndNegative}>
+              <img src={imgAddSvg} alt="add" />
+            </div>
+            <p className={styles.textPrice}>{` R$ ${item.price}`}</p>
+            <button
+                className={styles.btnOptionCard}
+                type="button"
+                onClick={ () => toggleActive(index) }
+            >
+              <img src={imgThreeDots} alt="three dots vertical" />
+            </button>
+            {optionCard && index === selectOptionCard ? (
+              <div className={styles.btnOptionCard}>
+                <button 
+                  type="button"
+                  onClick={ () => removeItem(index) }
+                >
+                  X
+                </button>
+                <button 
+                  type="button"
+                  onClick={ () => editItem(index) }
+                >
+                  EDIT
+                </button>
+              </div>
+            ) : null}
+          </div>
+        )}
+      </div>
     </div>
   )
 }
