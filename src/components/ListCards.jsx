@@ -8,6 +8,10 @@ import imgThreeDots from '../images/three-dots-vertical.svg'
 import imgAddSvg from '../images/add_FILL0_wght400_GRAD0_opsz48.svg'
 import imgTrashSvg from '../images/trash-fill.svg'
 import imgPencilSquare from '../images/pencil-square.svg'
+import imgFood from '../images/fastfood_black_24dp.svg'
+import imgVehicle from '../images/commute_black_24dp.svg'
+import imgMedical from '../images/medical_services_black_24dp.svg'
+import imgBag from '../images/shopping_bag_FILL0_wght400_GRAD0_opsz48.svg'
 
 
 export default function ListCards({editItem, setOptionCard, optionCard}) {
@@ -91,6 +95,15 @@ export default function ListCards({editItem, setOptionCard, optionCard}) {
     }
   }, [payment, cards, category])
 
+  const getTypeCategoryImg = {
+    'Salário': imgMoneySvg,
+    'Alimentação': imgFood,
+    'Transporte': imgVehicle,
+    'Saúde': imgMedical,
+    'Lazer': imgFood,
+    'Compras': imgBag
+  }
+ 
   return (
     <div>
       <div className={styles.containerFilterBtn}>
@@ -122,8 +135,8 @@ export default function ListCards({editItem, setOptionCard, optionCard}) {
         {!isLoading && 
           filterList.map((item, index) => 
           <div className={styles.subContainer} key={item.category + item.price + index}>
-            <div className={styles.imgMoney}>
-              <img src={imgMoneySvg} alt="money" />
+            <div className={styles[item.category]}>
+              <img src={getTypeCategoryImg[item.category]} alt={item.category} />
             </div>
             <div>
               <p className={styles.textPayment}>{item.category}</p>

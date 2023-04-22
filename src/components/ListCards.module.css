@@ -63,13 +63,78 @@
   align-items: center;
 }
 
-.imgMoney {
+.Salário {
   margin-left: 10px;
   margin-right: 10px;
   display: flex;
   width: 31px;
   height: 30px;
   background-color: rgba(204, 236, 221, 1);
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.20);
+}
+
+.Alimentação {
+  margin-left: 10px;
+  margin-right: 10px;
+  display: flex;
+  width: 31px;
+  height: 30px;
+  background-color: rgb(237, 221, 202);
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.20);
+}
+
+.Transporte {
+  margin-left: 10px;
+  margin-right: 10px;
+  display: flex;
+  width: 31px;
+  height: 30px;
+  background-color: rgba(221, 226, 237, 1);
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.20);
+}
+
+.Saúde {
+  margin-left: 10px;
+  margin-right: 10px;
+  display: flex;
+  width: 31px;
+  height: 30px;
+  background-color: rgb(241, 221, 221);
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.20);
+}
+
+.Lazer {
+  margin-left: 10px;
+  margin-right: 10px;
+  display: flex;
+  width: 31px;
+  height: 30px;
+  background-color: rgb(248, 248, 205);
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.20);
+}
+
+.Compras {
+  margin-left: 10px;
+  margin-right: 10px;
+  display: flex;
+  width: 31px;
+  height: 30px;
+  background-color: rgb(238, 213, 231);
   align-items: center;
   justify-content: center;
   border-radius: 5px;
