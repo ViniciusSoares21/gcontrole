@@ -15,6 +15,7 @@ export default function ListCards({editItem, setOptionCard, optionCard}) {
   const [category, setCategory] = useState('')
   const [selectOptionCard, setSelectOptionCard] = useState()
   const [filterList, setFilterList] = useState([])
+  const [positionY, setPositionY] = useState(0)
 
 
   useEffect(() => {
@@ -32,7 +33,10 @@ export default function ListCards({editItem, setOptionCard, optionCard}) {
     
   }
 
-  const toggleActive = (index) => {
+  const toggleActive = (index, event) => {
+    const positionBtn = event.target.getBoundingClientRect();
+    const y = positionBtn.top -39
+    setPositionY(y);
     const isActive = !optionCard;
     setOptionCard(isActive);
     setSelectOptionCard(index);
@@ -128,14 +132,24 @@ export default function ListCards({editItem, setOptionCard, optionCard}) {
             </div>
             <p className={styles.textPrice}>{` R$ ${item.price}`}</p>
             <button
-                className={styles.btnOptionCard}
                 type="button"
-                onClick={ () => toggleActive(index) }
+                onClick={ (event) => toggleActive(index, event) }
             >
               <img src={imgThreeDots} alt="three dots vertical" />
             </button>
             {optionCard && index === selectOptionCard ? (
-              <div className={styles.btnOptionCard}>
+              <div
+                style={{
+                  position: 'fixed',
+                  top: positionY,
+                  left: 335,
+                  backgroundColor: '#fff',
+                  boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.3)',
+                  borderRadius: '8px',
+                  width: '59px',
+                  height: '32px',
+                }}
+              >
                 <button 
                   type="button"
                   onClick={ () => removeItem(index) }

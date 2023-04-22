@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  gap: 191px;
+  gap: 190px;
   margin-left: 18px;
   margin-top: 15px;
 }
@@ -8,5 +8,5 @@
 .line {
   background-color: rgba(35, 147, 247, 1);
   height: 4px;
-  width: 100%;
+  width: 400px;
 }
