@@ -30,7 +30,7 @@ function WalletForm() {
       description,
       category
     }
-    const data = [...cards, card]
+    const data = [card, ...cards]
     setCards(data)
     localStorage.setItem('listCards', JSON.stringify(data))
     setPrice('')
@@ -52,7 +52,7 @@ function WalletForm() {
   const handleSubmitEdit = (e) => {
     e.preventDefault()
     const card = {
-      price,
+      price: formatInputOutPrice(price),
       payment,
       description,
       category
@@ -80,8 +80,8 @@ function WalletForm() {
         <form className={styles.subContainer}>
           <Input
             className={styles.inputsPriceAndCategory}
-            place={'valor'}
-            type={'number'}
+            place={'Valor da despesa'}
+            type={'text'}
             name={'price'}
             value={price}
             setStatus={setPrice}
