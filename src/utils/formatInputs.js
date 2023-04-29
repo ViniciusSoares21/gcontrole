@@ -1,5 +1,5 @@
 const formatInputOutPrice = (price) => {
-  const editNumber = Number(price).toFixed(2);
+  const editNumber = Number(price.replace(',', '.')).toFixed(2);
   return String(editNumber).replace('.', ',');
 }
 
