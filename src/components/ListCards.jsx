@@ -134,7 +134,7 @@ export default function ListCards({editItem, setOptionCard, optionCard}) {
           setStatus={ setCategory }
         />
       </div>
-      <div className={styles.containerList}>
+      <div className={optionCard ? styles.containerListNotScroll : styles.containerList}>
         {!isLoading ? 
           filterList.map((item, index) => 
           <div className={styles.subContainer} key={item.category + item.price + index}>

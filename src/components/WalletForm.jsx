@@ -16,12 +16,19 @@ function WalletForm() {
   const [positionInList, setPositionInList] = useState(null);
   const [optionCard, setOptionCard] = useState(false);
   const [idCard, setIdCard] = useState('');
-
+  console.log(optionCard);
 
   useEffect(() => {
     const getLocalStorage = JSON.parse(localStorage.getItem('listCards'))
     if (getLocalStorage !== null) setCards(getLocalStorage)
   }, [])
+
+  useEffect(() => {
+    document.body.style.overflow = 'auto'
+    if (optionCard) {
+      document.body.style.overflow = 'hidden'
+    }
+  }, [optionCard])
   
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -74,7 +81,7 @@ function WalletForm() {
     setDescription('')
     setCategory('Salário')
     setModeEditCard(false)
-    setOptionCard(false)
+    setOptionCard(null)
   }
 
   const isValid = price.length <= 0 || description.length <= 0 || description.length > 20
