@@ -49,7 +49,7 @@
 }
 
 .textNumberUp {
-  font-weight: bold;
+  font-weight: 450;
   color: rgba(55, 216, 110, 1);
   margin-left: 1px;
   width: 160px;
@@ -57,7 +57,7 @@
 
 .textNumberDown {
   width: 105.5px;
-  font-weight: bold;
+  font-weight: 450;
   color: red;
   margin-left: 1.5px;
 }
