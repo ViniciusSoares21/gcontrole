@@ -15,6 +15,7 @@ function WalletForm() {
   const [modeEditCard, setModeEditCard] = useState(false);
   const [positionInList, setPositionInList] = useState(null);
   const [optionCard, setOptionCard] = useState(false);
+  const [idCard, setIdCard] = useState('');
 
 
   useEffect(() => {
@@ -25,6 +26,7 @@ function WalletForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const card = {
+      id: new Date(),
       price: formatInputOutPrice(price),
       payment,
       description,
@@ -39,19 +41,22 @@ function WalletForm() {
     setCategory('Salário')
   }
   
-  const editItem = (index) => {
-    const edit = cards[index]
-    setModeEditCard(true)
+  const editItem = (id) => {
+    const [edit] = cards.filter((item) => item.id === id);
+    const index = cards.findIndex((item) => item.id === id);
     setPositionInList(index)
+    setIdCard(edit.id)
     setPrice(edit.price)
     setPayment(edit.payment)
     setDescription(edit.description)
     setCategory(edit.category)
+    setModeEditCard(true)
   }
   
   const handleSubmitEdit = (e) => {
     e.preventDefault()
     const card = {
+      id: idCard,
       price: formatInputOutPrice(price),
       payment,
       description,

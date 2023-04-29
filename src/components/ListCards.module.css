@@ -163,6 +163,14 @@
   width: 90px;
 }
 
+.textAddExpense {
+  color: rgb(138, 135, 135);
+  font-weight: 600;
+  font-size: 22px;
+  margin-top: 135px;
+  margin-left: 50px;
+}
+
 .backGroundIndicatorPositiveAndNegative {
   margin-left: 5px;
   margin-right: 2px;

@@ -25,15 +25,17 @@ export default function ListCards({editItem, setOptionCard, optionCard}) {
 
 
   useEffect(() => {
-    if (filterList !== null) {
+    if (filterList !== null && filterList.length > 0) {
       setIsLoading(false);
+    } else {
+      setIsLoading(true);
     }
-  }, [cards])
+  }, [cards, filterList])
 
-  const removeItem = (indexParam) => {
-    const remove = cards.filter((item, index) => index !== indexParam);
-      
-    setCards(remove);
+  const removeItem = (id) => {
+    const remove = cards.filter((item) => item.id !== id);
+    setCards(remove)
+    setFilterList(remove);
     setOptionCard(false);
     return localStorage.setItem('listCards', JSON.stringify(remove));
     
@@ -51,6 +53,7 @@ export default function ListCards({editItem, setOptionCard, optionCard}) {
   const clearList = () => {
     localStorage.removeItem('listCards');
     setCards([]);
+    setFilterList([]);
     setExpenses('0,00');
     setRevenue('0,00');
   }
@@ -132,7 +135,7 @@ export default function ListCards({editItem, setOptionCard, optionCard}) {
         />
       </div>
       <div className={styles.containerList}>
-        {!isLoading && 
+        {!isLoading ? 
           filterList.map((item, index) => 
           <div className={styles.subContainer} key={item.category + item.price + index}>
             <div className={styles[item.category]}>
@@ -176,21 +179,21 @@ export default function ListCards({editItem, setOptionCard, optionCard}) {
                 <button
                   style={{ backgroundColor: 'white', marginTop: '4px' }}
                   type="button"
-                  onClick={ () => removeItem(index) }
+                  onClick={ () => removeItem(item.id) }
                 >
                   <img src={imgTrashSvg} alt="trash" />
                 </button>
                 <button
                   style={{ backgroundColor: 'white', marginTop: '4px'}}
                   type="button"
-                  onClick={ () => editItem(index) }
+                  onClick={ () => editItem(item.id) }
                 >
                   <img src={imgPencilSquare} alt="Pencil Square" />
                 </button>
               </div>
             ) : null}
           </div>
-        )}
+        ) : <p className={styles.textAddExpense}>ADICIONE UMA DISPESA</p>}
       </div>
     </div>
   )
