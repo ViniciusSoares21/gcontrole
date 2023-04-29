@@ -4,6 +4,7 @@ import Input from './Input'
 import Select from './Select'
 import ControlContext from '../context/ControlContext'
 import styles from './WalletForm.module.css'
+import formatInputOutPrice from '../utils/formatInputs'
 
 function WalletForm() {
   const { setCards, cards } = useContext(ControlContext);
@@ -24,7 +25,7 @@ function WalletForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const card = {
-      price,
+      price: formatInputOutPrice(price),
       payment,
       description,
       category
@@ -50,7 +51,6 @@ function WalletForm() {
   
   const handleSubmitEdit = (e) => {
     e.preventDefault()
-
     const card = {
       price,
       payment,
@@ -72,7 +72,7 @@ function WalletForm() {
     setOptionCard(false)
   }
 
-  const isValid = price.length <= 0 || description.length <= 0
+  const isValid = price.length <= 0 || description.length <= 0 || description.length > 20
   
   return (
     <main>
@@ -81,7 +81,7 @@ function WalletForm() {
           <Input
             className={styles.inputsPriceAndCategory}
             place={'valor'}
-            type={'text'}
+            type={'number'}
             name={'price'}
             value={price}
             setStatus={setPrice}

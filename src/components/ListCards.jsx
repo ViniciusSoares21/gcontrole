@@ -12,7 +12,7 @@ import imgFood from '../images/fastfood_black_24dp.svg'
 import imgVehicle from '../images/commute_black_24dp.svg'
 import imgMedical from '../images/medical_services_black_24dp.svg'
 import imgBag from '../images/shopping_bag_FILL0_wght400_GRAD0_opsz48.svg'
-
+import imgNegative from '../images/remove_FILL0_wght400_GRAD0_opsz48.svg'
 
 export default function ListCards({editItem, setOptionCard, optionCard}) {
   const { cards, setCards, setExpenses, setRevenue } = useContext(ControlContext)
@@ -143,7 +143,10 @@ export default function ListCards({editItem, setOptionCard, optionCard}) {
               <p className={styles.textCategory}>{item.description}</p>
             </div>
             <div className={styles.backGroundIndicatorPositiveAndNegative}>
-              <img src={imgAddSvg} alt="add" />
+              <img 
+                src={ item.category !== 'Salário' ? imgNegative : imgAddSvg} 
+                alt="add" 
+              />
             </div>
             <p className={styles.textPrice}>{` R$ ${item.price}`}</p>
             <button
