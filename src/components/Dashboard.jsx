@@ -26,6 +26,7 @@ function Dashboard() {
       setExpenses(calculatorExpenses);
     }
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cards])
 
   return (

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useState } from 'react'
 import ListCards from './ListCards'
 import Input from './Input'
@@ -16,7 +17,6 @@ function WalletForm() {
   const [positionInList, setPositionInList] = useState(null);
   const [optionCard, setOptionCard] = useState(false);
   const [idCard, setIdCard] = useState('');
-  console.log(optionCard);
 
   useEffect(() => {
     const getLocalStorage = JSON.parse(localStorage.getItem('listCards'))
