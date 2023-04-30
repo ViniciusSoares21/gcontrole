@@ -19,7 +19,7 @@ function AnalyticsPayment() {
     .filter((item) => item.payment === 'Dinheiro').length;
 
   const data = [
-    ["category", "quantity"],
+    ["payment", "quantity"],
     ["Cartão de crédito", qtyCredit],
     ["Cartão de débito", qtyDebit],
     ["Boleto", qtyTicket],
