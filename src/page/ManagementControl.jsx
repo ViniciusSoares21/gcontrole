@@ -2,6 +2,7 @@ import React from 'react'
 import WalletForm from '../components/WalletForm'
 import Dashboard from '../components/Dashboard'
 import NavBar from '../components/NavBar'
+import Footer from '../components/Footer'
 
 function ManagementControl() {
   return (
@@ -9,6 +10,7 @@ function ManagementControl() {
       <NavBar />
       <Dashboard />
       <WalletForm />
+      <Footer />
     </div>
   )
 }

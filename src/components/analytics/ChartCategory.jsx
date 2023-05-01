@@ -1,9 +1,8 @@
 import React from 'react'
-import NavBar from '../NavBar'
 import { Chart } from "react-google-charts";
 import styles from './AnalyticsPayment.module.css'
 
-function AnalyticsCategory() {
+function ChartCategory() {
   const getItems = JSON.parse(localStorage.getItem('listCards'));
   const qtySalary= getItems
     .filter((item) => item.category === 'Salário').length;
@@ -41,17 +40,14 @@ function AnalyticsCategory() {
   };
 
   return (
-    <main>
-      <NavBar />
-      <div className={ styles.chart}>
-        <Chart
-          chartType="ColumnChart"
-          data={data}
-          options={options}
+    <div className={ styles.chart}>
+      <Chart
+        chartType="ColumnChart"
+        data={data}
+        options={options}
       />
-      </div>
-    </main>
+    </div>
   )
 }
 
-export default AnalyticsCategory
+export default ChartCategory

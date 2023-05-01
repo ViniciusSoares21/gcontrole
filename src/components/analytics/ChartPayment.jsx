@@ -1,9 +1,8 @@
 import React from 'react'
-import NavBar from '../NavBar'
 import { Chart } from "react-google-charts";
 import styles from './AnalyticsPayment.module.css'
 
-function AnalyticsPayment() {
+function ChartPayment() {
 
   const getItems = JSON.parse(localStorage.getItem('listCards'));
   const qtyCredit = getItems
@@ -42,17 +41,14 @@ function AnalyticsPayment() {
   };
 
   return (
-    <main>
-      <NavBar />
-      <div className={ styles.chart}>
-        <Chart
-          chartType="PieChart"
-          data={data}
-          options={options}
+    <div className={ styles.chart}>
+      <Chart
+        chartType="PieChart"
+        data={data}
+        options={options}
       />
-      </div>
-    </main>
+    </div>
   )
 }
 
-export default AnalyticsPayment
+export default ChartPayment

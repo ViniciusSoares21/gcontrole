@@ -3,8 +3,8 @@ import ManagementControl from "./page/ManagementControl";
 import './App.css'
 import { Route, Routes } from "react-router-dom";
 import NotFound from "./components/NotFound";
-import AnalyticsPayment from "./components/analytics/AnalyticsPayment";
-import AnalyticsCategory from "./components/analytics/AnalyticsCategory";
+import AnalyticsPayment from "./page/AnalyticsPayment";
+import AnalyticsCategory from "./page/AnalyticsCategory";
 
 function App() {
   return (
