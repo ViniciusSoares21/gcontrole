@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  height: 40px;
+  background-color: rgba(35, 147, 247, 1);
+  width: 400px;
+}
+
+.text {
+  color: rgba(188, 188, 188, 1);
+  font-weight: 600;
+}
+
+.image {
+  margin-left: 8px;
+}
