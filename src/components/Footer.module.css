@@ -11,6 +11,7 @@
 .text {
   color: rgba(188, 188, 188, 1);
   font-weight: 600;
+  text-decoration: none;
 }
 
 .image {

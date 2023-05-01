@@ -6,7 +6,9 @@ import imgGitHubSvg from '../images/github.svg'
 function Footer() {
   return (
     <footer className={ styles.container }>
-      <p className={styles.text}>Created By</p>
+      <a href="https://www.linkedin.com/in/vinicius-soares21/" className={styles.text}>
+        Created By
+      </a>
       <a href="https://www.linkedin.com/in/vinicius-soares21/">
         <img className={ styles.image } src={imgLinkedinSvg} alt="Linkedin" />
       </a>
