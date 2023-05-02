@@ -37,6 +37,9 @@ function NavBar() {
         <Link to="/analytics/category">
           <p>Análise de categoria</p>
         </Link>
+        <Link to="/donation">
+          <p>Contribuir</p>
+        </Link>
       </section>
       }
     </div>

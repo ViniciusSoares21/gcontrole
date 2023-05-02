@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import NotFound from "./components/NotFound";
 import AnalyticsPayment from "./page/AnalyticsPayment";
 import AnalyticsCategory from "./page/AnalyticsCategory";
+import Donation from "./page/Donation";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={ <ManagementControl />} />
         <Route path="/analytics/payment" element={ <AnalyticsPayment />} />
         <Route path="/analytics/category" element={ <AnalyticsCategory />} />
+        <Route path="/donation" element={ <Donation />} />
         <Route path="*" element={ <NotFound />}/>
       </Routes>
     </ControlProvider>
