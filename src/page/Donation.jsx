@@ -7,7 +7,7 @@ function Donation() {
     <main>
       <NavBar />
       <p className={styles.paragraph}>
-      Essa é uma pagína para apoiar o site !!! 
+      Essa é uma página para apoiar o site !!! 
       </p>
       <a 
         href="https://nubank.com.br/pagar/hkpd8/HBTiit1ewM"
