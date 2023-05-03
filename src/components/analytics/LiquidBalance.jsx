@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from './LiquidBalance.module.css'
 
 function LiquidBalance() {
   const calculatorLiquidBalance = () => {
@@ -21,9 +22,9 @@ function LiquidBalance() {
       return '0,00'
   }
   return (
-    <div>
-      <p>SALDO LÍQUIDO</p>
-      <p>{`R$ ${calculatorLiquidBalance()}`}</p>
+    <div className={ styles.container }>
+      <p className={ styles.text}>SALDO LÍQUIDO</p>
+      <p className={ styles.textPrice }>{`R$ ${calculatorLiquidBalance()}`}</p>
     </div>
   )
 }
