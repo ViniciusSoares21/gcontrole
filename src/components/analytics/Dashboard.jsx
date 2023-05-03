@@ -1,8 +1,8 @@
 import React, { useEffect, useContext } from 'react'
-import ControlContext from '../context/ControlContext'
+import ControlContext from '../../context/ControlContext'
 import styles from './Dashboard.module.css'
-import imgGraphUp from '../images/graph-up-arrow.svg'
-import imgGraphDown from '../images/graph-down-arrow.svg'
+import imgGraphUp from '../../images/graph-up-arrow.svg'
+import imgGraphDown from '../../images/graph-down-arrow.svg'
 
 function Dashboard() {
   const { cards, setExpenses, setRevenue, revenue, expenses } = useContext(ControlContext);
@@ -18,8 +18,9 @@ function Dashboard() {
   
       const calculatorExpenses = data.filter((item) => item.category !== 'Salário')
         .reduce((acc, cur) => {
-          const price = parseFloat(cur.price.replace(',', '.'));
-          return (parseFloat(acc) + price).toFixed(2).replace('.', ',');
+          const priceCur = Number(cur.price.replace(',', '.'));
+          const priceAcc = Number(String(acc).replace(',', '.'));
+          return (priceAcc + priceCur).toFixed(2).replace('.', ',');
       }, 0);
   
       setRevenue(calculatorRevenue);
