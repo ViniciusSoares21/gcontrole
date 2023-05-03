@@ -6,7 +6,6 @@ import { useLocation } from 'react-router-dom'
 
 function CardBalance({title, data, valueBalance}) {
   const path = useLocation();
-  console.log(path.pathname);
   return (
     <div className={ styles.container }>
       <h3 className={ styles.title }>{title}</h3>
