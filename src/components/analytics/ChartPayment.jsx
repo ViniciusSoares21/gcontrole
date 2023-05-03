@@ -2,6 +2,7 @@ import React from 'react'
 import { Chart } from "react-google-charts";
 import styles from './AnalyticsPayment.module.css'
 import balance from '../../utils/balancePayments';
+
 function ChartPayment(payment) {
 
   const data = [
