@@ -7,16 +7,15 @@ function LiquidBalance() {
         const calculatorRevenue = data.filter((item) => item.category === 'Salário')
           .reduce((acc, cur) => {
             const price = parseFloat(cur.price.replace(',', '.'));
-            return (parseFloat(acc) + price).toFixed(2);
+            return (Number(acc) + price).toFixed(2);
         }, 0);
     
         const calculatorExpenses = data.filter((item) => item.category !== 'Salário')
           .reduce((acc, cur) => {
             const price = parseFloat(cur.price.replace(',', '.'));
-            return (parseFloat(acc) + price).toFixed(2);
+            return (Number(acc) + price).toFixed(2);
         }, 0);
-        console.log(calculatorRevenue, calculatorExpenses);
-        return String(Number(calculatorRevenue) - Number(calculatorExpenses)).replace('.', ',') 
+        return String(calculatorRevenue - calculatorExpenses).replace('.', ',') 
       }
 
       return '0,00'
