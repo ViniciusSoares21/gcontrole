@@ -12,8 +12,9 @@ function Dashboard() {
     if (data) {
       const calculatorRevenue = data.filter((item) => item.category === 'Salário')
         .reduce((acc, cur) => {
-          const price = parseFloat(cur.price.replace(',', '.'));
-          return (parseFloat(acc) + price).toFixed(2).replace('.', ',');
+          const priceCur = Number(cur.price.replace(',', '.'));
+          const priceAcc = Number(String(acc).replace(',', '.'));
+          return (priceAcc + priceCur).toFixed(2).replace('.', ',');
       }, 0);
   
       const calculatorExpenses = data.filter((item) => item.category !== 'Salário')
