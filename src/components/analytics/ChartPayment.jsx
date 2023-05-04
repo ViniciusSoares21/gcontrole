@@ -5,12 +5,18 @@ import balance from '../../utils/balancePayments';
 
 function ChartPayment(payment) {
 
+  const creditQty = balance('Cartão de crédito').sumDebitNegative.replace(',', '.');
+  const debitQty = balance('Cartão de débito').sumDebitNegative.replace(',', '.');
+  const ticketQty = balance('Boleto').sumDebitNegative.replace(',', '.');
+  const moneyQty = balance('Dinheiro').sumDebitNegative.replace(',', '.')
+
+
   const data = [
-    ["payment", "quantity"],
-    ["Cartão de crédito", balance('Cartão de crédito').qty],
-    ["Cartão de débito", balance('Cartão de débito').qty],
-    ["Boleto", balance('Boleto').qty],
-    ["Dinheiro", balance('Dinheiro').qty],
+    ["payment", "quantity", { role: 'style' }],
+    ["Cartão de crédito", Number(creditQty), '2393F7' ],
+    ["Cartão de débito", Number(debitQty), 'ED1919'],
+    ["Boleto", Number(ticketQty), 'F6772F'],
+    ["Dinheiro", Number(moneyQty), '27FA21'],
   ];
 
   const options = {
@@ -33,7 +39,7 @@ function ChartPayment(payment) {
   return (
     <div className={ styles.chart}>
       <Chart
-        chartType="PieChart"
+        chartType="ColumnChart"
         data={data}
         options={options}
       />
