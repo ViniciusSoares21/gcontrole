@@ -14,18 +14,20 @@ function Dashboard() {
         .reduce((acc, cur) => {
           const priceCur = Number(cur.price.replace(',', '.'));
           const priceAcc = Number(String(acc).replace(',', '.'));
-          return (priceAcc + priceCur).toFixed(2).replace('.', ',');
+          return priceAcc + priceCur
       }, 0);
   
       const calculatorExpenses = data.filter((item) => item.category !== 'Salário')
         .reduce((acc, cur) => {
           const priceCur = Number(cur.price.replace(',', '.'));
           const priceAcc = Number(String(acc).replace(',', '.'));
-          return (priceAcc + priceCur).toFixed(2).replace('.', ',');
+          return priceAcc + priceCur;
       }, 0);
   
-      setRevenue(calculatorRevenue);
-      setExpenses(calculatorExpenses);
+      setRevenue(calculatorRevenue.toLocaleString(
+        'pt-BR', { style: 'currency', currency: 'BRL' }));
+      setExpenses(calculatorExpenses.toLocaleString(
+        'pt-BR', { style: 'currency', currency: 'BRL' }));
     }
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -41,7 +43,7 @@ function Dashboard() {
             </div>
             <div>
               <p className={styles.text}>RECEITAS</p>
-              <p className={styles.textNumberUp}>{`R$ ${revenue}`}</p>
+              <p className={styles.textNumberUp}>{revenue}</p>
             </div>
           </div>
         </div>
@@ -52,7 +54,7 @@ function Dashboard() {
             </div>
             <div>
               <p className={styles.text}>DESPESAS</p>
-              <p className={styles.textNumberDown}>{`R$ ${expenses}`}</p>
+              <p className={styles.textNumberDown}>{expenses}</p>
             </div>
           </div>
         </div>

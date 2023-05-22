@@ -16,15 +16,16 @@ function LiquidBalance() {
             const price = parseFloat(cur.price.replace(',', '.'));
             return (Number(acc) + price).toFixed(2);
         }, 0);
-        return String(calculatorRevenue - calculatorExpenses).replace('.', ',') 
+        return (calculatorRevenue - calculatorExpenses).toLocaleString(
+          'pt-BR', { style: 'currency', currency: 'BRL' }); 
       }
 
-      return '0,00'
+      return 'R$ 0,00'
   }
   return (
     <div className={ styles.container }>
       <p className={ styles.text}>SALDO LÍQUIDO</p>
-      <p className={ styles.textPrice }>{`R$ ${calculatorLiquidBalance()}`}</p>
+      <p className={ styles.textPrice }>{calculatorLiquidBalance()}</p>
     </div>
   )
 }
