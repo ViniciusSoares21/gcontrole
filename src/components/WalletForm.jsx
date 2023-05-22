@@ -118,7 +118,7 @@ function WalletForm() {
             {border: '2px solid rgb(188, 3, 3)', marginRight: '14px'} : null}
             className={styles.inputsPriceAndCategory}
             place={'Valor da despesa'}
-            type={'text'}
+            type={'number'}
             name={'price'}
             value={price}
             setStatus={setPrice}
