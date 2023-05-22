@@ -108,12 +108,13 @@ function WalletForm() {
   return (
     <main>
       {validForm.input === 'price' && validForm.valid ?
-        <p>Adicione um valor para despesa</p> : null}
+        <p className={styles.messageInput}>Adicione um valor para despesa</p> : null}
       {validForm.input === 'description' && validForm.valid ? 
-        <p>Adicione uma Descrição para despesa</p> : null}
+        <p className={styles.messageInput}>Adicione uma Descrição para despesa</p> : null}
       <div className={styles.container}>
         <form className={styles.subContainer}>
           <Input
+            valid={validForm}
             className={styles.inputsPriceAndCategory}
             place={'Valor da despesa'}
             type={'text'}

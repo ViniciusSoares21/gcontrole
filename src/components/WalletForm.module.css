@@ -69,3 +69,15 @@ input[type="text"]::placeholder {
 select {
   padding-left: 10px;
 }
+
+.messageInput {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(249, 196, 196);
+  color: rgb(188, 3, 3);
+  border: 1px solid rgb(188, 3, 3);
+  margin-left: 15px;
+  height: 44px;
+  width: 368px;
+}
