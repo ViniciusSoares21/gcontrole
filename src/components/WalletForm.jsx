@@ -114,7 +114,8 @@ function WalletForm() {
       <div className={styles.container}>
         <form className={styles.subContainer}>
           <Input
-            valid={validForm}
+            style={validForm.input === 'price' && validForm.valid ? 
+            {border: '2px solid rgb(188, 3, 3)', marginRight: '14px'} : null}
             className={styles.inputsPriceAndCategory}
             place={'Valor da despesa'}
             type={'text'}
@@ -130,6 +131,7 @@ function WalletForm() {
             setStatus={ setPayment }
           />
           <Input
+            style={validForm.input === 'description' && validForm.valid ? {border: '2px solid rgb(188, 3, 3)'} : null}
             className={styles.inputCategory}
             place={'Descrição'}
             type={'text'}
