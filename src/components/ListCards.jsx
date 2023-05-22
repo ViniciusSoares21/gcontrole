@@ -151,7 +151,9 @@ export default function ListCards({editItem, setOptionCard, optionCard}) {
                 alt="add" 
               />
             </div>
-            <p className={styles.textPrice}>{` R$ ${item.price}`}</p>
+            <p className={styles.textPrice}>{
+              Number(item.price.replace(',', '.')).toLocaleString(
+              'pt-BR', { style: 'currency', currency: 'BRL' })}</p>
             <button
                 style={{ backgroundColor: 'rgb(240, 243, 248)' }}
                 type="button"
