@@ -17,6 +17,7 @@ function WalletForm() {
   const [positionInList, setPositionInList] = useState(null);
   const [optionCard, setOptionCard] = useState(false);
   const [idCard, setIdCard] = useState('');
+  const [validForm, setValidForm] = useState({input: "", valid: null})
 
   useEffect(() => {
     const getLocalStorage = JSON.parse(localStorage.getItem('listCards'))
@@ -29,23 +30,39 @@ function WalletForm() {
       document.body.style.overflow = 'hidden'
     }
   }, [optionCard])
+
+  const isValid = () => {
+    if (price.length <= 0) {
+      return {input: "price", valid: true}
+    }
+    else if (description.length <= 0 || description.length > 20) {
+      return {input: "description", valid: true}
+    }
+    else {
+      return {valid: false}
+    }
+  }
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    const card = {
-      id: new Date(),
-      price: formatInputOutPrice(price),
-      payment,
-      description,
-      category
+    const validInputs = isValid()
+    if (!validInputs.valid) {
+      const card = {
+        id: new Date(),
+        price: formatInputOutPrice(price),
+        payment,
+        description,
+        category
+      }
+      const data = [card, ...cards]
+      setCards(data)
+      localStorage.setItem('listCards', JSON.stringify(data))
+      setPrice('')
+      setPayment('Cartão de crédito')
+      setDescription('')
+      setCategory('Salário')
     }
-    const data = [card, ...cards]
-    setCards(data)
-    localStorage.setItem('listCards', JSON.stringify(data))
-    setPrice('')
-    setPayment('Cartão de crédito')
-    setDescription('')
-    setCategory('Salário')
+    setValidForm(validInputs)
   }
   
   const editItem = (id) => {
@@ -62,32 +79,38 @@ function WalletForm() {
   
   const handleSubmitEdit = (e) => {
     e.preventDefault()
-    const card = {
-      id: idCard,
-      price: formatInputOutPrice(price),
-      payment,
-      description,
-      category
+    const validInputs = isValid()
+    if (!validInputs.valid) {
+      const card = {
+        id: idCard,
+        price: formatInputOutPrice(price),
+        payment,
+        description,
+        category
+      }
+
+      const data = [...cards]
+      data.splice(positionInList, 1, card)
+
+      setCards(data)
+      localStorage.setItem('listCards', JSON.stringify(data))
+
+      setPrice('')
+      setPayment('Cartão de crédito')
+      setDescription('')
+      setCategory('Salário')
+      setModeEditCard(false)
+      setOptionCard(null)
     }
-
-    const data = [...cards]
-    data.splice(positionInList, 1, card)
-
-    setCards(data)
-    localStorage.setItem('listCards', JSON.stringify(data))
-
-    setPrice('')
-    setPayment('Cartão de crédito')
-    setDescription('')
-    setCategory('Salário')
-    setModeEditCard(false)
-    setOptionCard(null)
+    setValidForm(validInputs)
   }
-
-  const isValid = price.length <= 0 || description.length <= 0 || description.length > 20
   
   return (
     <main>
+      {validForm.input === 'price' && validForm.valid ?
+        <p>Adicione um valor para despesa</p> : null}
+      {validForm.input === 'description' && validForm.valid ? 
+        <p>Adicione uma Descrição para despesa</p> : null}
       <div className={styles.container}>
         <form className={styles.subContainer}>
           <Input
@@ -124,7 +147,6 @@ function WalletForm() {
             <button
             className={styles.btnEdit}
             type="submit"
-            disabled={ isValid }
             onClick={ handleSubmitEdit }
             >
               EDITAR
@@ -134,7 +156,6 @@ function WalletForm() {
             <button
               className={styles.btnAdd}
               type="submit"
-              disabled={ isValid }
               onClick={ handleSubmit }
             >
               ADICIONAR
