@@ -22,6 +22,7 @@ export default function ListCards({editItem, setOptionCard, optionCard}) {
   const [selectOptionCard, setSelectOptionCard] = useState()
   const [filterList, setFilterList] = useState([])
   const [positionY, setPositionY] = useState(0)
+  const [positionBtnListY, setPositionBtnListY] = useState(0)
   const [confirmationToDeleteTheList, setConfirmationToDeleteTheList] = useState(false)
 
 
@@ -58,6 +59,13 @@ export default function ListCards({editItem, setOptionCard, optionCard}) {
     setExpenses('0,00');
     setRevenue('0,00');
     setConfirmationToDeleteTheList(false)
+  }
+
+  const confirmationDeleteList = (event) => {
+    const positionBtn = event.target.getBoundingClientRect();
+    const y = positionBtn.top -90
+    setPositionBtnListY(y);
+    setConfirmationToDeleteTheList(true)
   }
 
   const filterListByPayment = () => {
@@ -115,7 +123,7 @@ export default function ListCards({editItem, setOptionCard, optionCard}) {
         <button
         className={styles.btnClear}
           type="button"
-          onClick={ () => setConfirmationToDeleteTheList(true) }
+          onClick={ (event) => confirmationDeleteList(event) }
         >
           X LIMPAR
         </button>
@@ -137,8 +145,21 @@ export default function ListCards({editItem, setOptionCard, optionCard}) {
         />
       </div>
       {confirmationToDeleteTheList ? (
-        <div className={styles.containerQuestion}>
-          <p>Você tem certeza que deseja limpar a lista de despesas</p>
+        <div style={{
+            display: 'flex',
+            position: 'absolute',
+            top: positionBtnListY,
+            justifyContent: 'center',
+            flexDirection: 'column',
+            alignItems: 'center',
+            backgroundColor: 'white',
+            boxShadow: '0px 0px 15px 5px rgba(0, 0, 0, 0.12)',
+            borderRadius: '5px',
+            marginLeft: '16px',
+            width: '370px',
+            height: '150px'
+        }}>
+          <p style={{textAlign: 'center'}}>Você tem certeza que deseja limpar a lista de despesas</p>
           <div className={styles.containerQuestionBtn}>
             <button
               className={styles.btnYes}
