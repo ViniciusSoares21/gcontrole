@@ -22,6 +22,7 @@ export default function ListCards({editItem, setOptionCard, optionCard}) {
   const [selectOptionCard, setSelectOptionCard] = useState()
   const [filterList, setFilterList] = useState([])
   const [positionY, setPositionY] = useState(0)
+  const [confirmationToDeleteTheList, setConfirmationToDeleteTheList] = useState(false)
 
 
   useEffect(() => {
@@ -56,6 +57,7 @@ export default function ListCards({editItem, setOptionCard, optionCard}) {
     setFilterList([]);
     setExpenses('0,00');
     setRevenue('0,00');
+    setConfirmationToDeleteTheList(false)
   }
 
   const filterListByPayment = () => {
@@ -113,7 +115,7 @@ export default function ListCards({editItem, setOptionCard, optionCard}) {
         <button
         className={styles.btnClear}
           type="button"
-          onClick={ () => clearList() }
+          onClick={ () => setConfirmationToDeleteTheList(true) }
         >
           X LIMPAR
         </button>
@@ -134,6 +136,27 @@ export default function ListCards({editItem, setOptionCard, optionCard}) {
           setStatus={ setCategory }
         />
       </div>
+      {confirmationToDeleteTheList ? (
+        <div className={styles.containerQuestion}>
+          <p>Você tem certeza que deseja limpar a lista de despesas</p>
+          <div className={styles.containerQuestionBtn}>
+            <button
+              className={styles.btnYes}
+              type="button"
+              onClick={ () => clearList() }
+            >
+              SIM
+            </button>
+            <button
+              className={styles.btnNo}
+              type="button"
+              onClick={ () => setConfirmationToDeleteTheList(false) }
+            >
+              NÃO
+            </button>
+          </div>
+        </div>
+      ) : null}
       <div className={optionCard ? styles.containerListNotScroll : styles.containerList}>
         {!isLoading ? 
           filterList.map((item, index) => 
