@@ -21,7 +21,7 @@ export default function ListCards({editItem, setOptionCard, optionCard}) {
   const [category, setCategory] = useState('')
   const [selectOptionCard, setSelectOptionCard] = useState()
   const [filterList, setFilterList] = useState([])
-  const [positionY, setPositionY] = useState(0)
+  const [positionY, setPositionY] = useState({y: '', x: ''})
   const [positionBtnListY, setPositionBtnListY] = useState(0)
   const [confirmationToDeleteTheList, setConfirmationToDeleteTheList] = useState(false)
 
@@ -46,7 +46,8 @@ export default function ListCards({editItem, setOptionCard, optionCard}) {
   const toggleActive = (index, event) => {
     const positionBtn = event.target.getBoundingClientRect();
     const y = positionBtn.top -39
-    setPositionY(y);
+    const x = positionBtn.right -40
+    setPositionY({x, y});
     const isActive = !optionCard;
     setOptionCard(isActive);
     setSelectOptionCard(index);
@@ -185,62 +186,66 @@ export default function ListCards({editItem, setOptionCard, optionCard}) {
         {!isLoading ? 
           filterList.map((item, index) => 
           <div className={styles.subContainer} key={item.category + item.price + index}>
-            <div className={styles[item.category]}>
-              <img src={getTypeCategoryImg[item.category]} alt={item.category} />
+            <div>
+              <div className={styles[item.category]}>
+                <img src={getTypeCategoryImg[item.category]} alt={item.category} />
+              </div>
+              <div style={{display: 'block'}}>
+                <p className={styles.textPayment}>{item.category}</p>
+                <p className={styles.textCategory}>{item.description}</p>
+              </div>
             </div>
             <div>
-              <p className={styles.textPayment}>{item.category}</p>
-              <p className={styles.textCategory}>{item.description}</p>
-            </div>
-            <div className={styles.backGroundIndicatorPositiveAndNegative}>
-              <img 
-                src={ item.category !== 'Salário' ? imgNegative : imgAddSvg} 
-                alt="add" 
-              />
-            </div>
-            <p className={styles.textPrice}>{
-              Number(item.price.replace(',', '.')).toLocaleString(
-              'pt-BR', { style: 'currency', currency: 'BRL' })}</p>
-            <button
-                style={{ backgroundColor: 'rgb(240, 243, 248)' }}
-                type="button"
-                onClick={ (event) => toggleActive(index, event) }
-            >
-              <img src={imgThreeDots} alt="three dots vertical" />
-            </button>
-            {optionCard && index === selectOptionCard ? (
-              <div
-                style={{
-                  alignContent: 'center',
-                  alignItems: 'center',
-                  justifyContent: 'space-evenly',
-                  display: 'flex',
-                  position: 'fixed',
-                  top: positionY,
-                  left: 335,
-                  backgroundColor: '#fff',
-                  boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.3)',
-                  borderRadius: '8px',
-                  width: '59px',
-                  height: '32px',
-                }}
-              >
-                <button
-                  style={{ backgroundColor: 'white', marginTop: '4px' }}
-                  type="button"
-                  onClick={ () => removeItem(item.id) }
-                >
-                  <img src={imgTrashSvg} alt="trash" />
-                </button>
-                <button
-                  style={{ backgroundColor: 'white', marginTop: '4px'}}
-                  type="button"
-                  onClick={ () => editItem(item.id) }
-                >
-                  <img src={imgPencilSquare} alt="Pencil Square" />
-                </button>
+              <div className={styles.backGroundIndicatorPositiveAndNegative}>
+                <img 
+                  src={ item.category !== 'Salário' ? imgNegative : imgAddSvg} 
+                  alt="add" 
+                />
               </div>
-            ) : null}
+              <p className={styles.textPrice}>{
+                Number(item.price.replace(',', '.')).toLocaleString(
+                'pt-BR', { style: 'currency', currency: 'BRL' })}</p>
+              <button
+                  style={{ backgroundColor: 'rgb(240, 243, 248)' }}
+                  type="button"
+                  onClick={ (event) => toggleActive(index, event) }
+              >
+                <img src={imgThreeDots} alt="three dots vertical" />
+              </button>
+              {optionCard && index === selectOptionCard ? (
+                <div
+                  style={{
+                    alignContent: 'center',
+                    alignItems: 'center',
+                    justifyContent: 'space-evenly',
+                    display: 'flex',
+                    position: 'fixed',
+                    top: positionY.y,
+                    left: positionY.x,
+                    backgroundColor: '#fff',
+                    boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.3)',
+                    borderRadius: '8px',
+                    width: '59px',
+                    height: '32px',
+                  }}
+                >
+                  <button
+                    style={{ backgroundColor: 'white', marginTop: '4px' }}
+                    type="button"
+                    onClick={ () => removeItem(item.id) }
+                  >
+                    <img src={imgTrashSvg} alt="trash" />
+                  </button>
+                  <button
+                    style={{ backgroundColor: 'white', marginTop: '4px'}}
+                    type="button"
+                    onClick={ () => editItem(item.id) }
+                  >
+                    <img src={imgPencilSquare} alt="Pencil Square" />
+                  </button>
+                </div>
+              ) : null}
+            </div>
           </div>
         ) : <p className={styles.textAddExpense}>ADICIONE UMA DISPESA</p>}
       </div>
