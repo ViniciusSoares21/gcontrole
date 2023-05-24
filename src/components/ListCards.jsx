@@ -155,9 +155,12 @@ export default function ListCards({editItem, setOptionCard, optionCard}) {
             backgroundColor: 'white',
             boxShadow: '0px 0px 15px 5px rgba(0, 0, 0, 0.12)',
             borderRadius: '5px',
-            marginLeft: '16px',
+            left: '0',
+            right: '0',
             width: '370px',
-            height: '150px'
+            height: '150px',
+            marginLeft: 'auto',
+            marginRight: 'auto'
         }}>
           <p style={{textAlign: 'center'}}>Você tem certeza que deseja limpar a lista de despesas</p>
           <div className={styles.containerQuestionBtn}>
