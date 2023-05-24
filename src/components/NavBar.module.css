@@ -25,6 +25,8 @@
   background-color: rgba(35, 147, 247, 1);
   height: 4px;
   width: 100%;
+  max-width: 480px;
+  margin: auto;
 }
 
 .sideBar {
