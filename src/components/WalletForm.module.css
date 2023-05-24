@@ -1,9 +1,11 @@
 .container {
   align-items: center;
   display: flex;
-  width: 369px;
   height: 180px;
-  margin-left: 16px;
+  width: 94%;
+  max-width: 452px;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 18px;
   margin-bottom: 20px;
   background-color: white;
@@ -12,14 +14,14 @@
 }
 
 .subContainer {
-  margin-left: 12px;
+  margin: auto;
   height: 156px;
-  width: 348px;
+  width: 94%;
 }
 
 .inputsPriceAndCategory {
-  margin-right: 16px;
-  width: 158px;
+  margin-right: 4%;
+  width: 46%;
   height: 44px;
   border-radius: 4.5px;
   background-color: rgb(240, 243, 248);
@@ -27,7 +29,7 @@
 }
 
 .inputsPayment {
-  width: 171px;
+  width: 50%;
   height: 44px;
   border-radius: 4.5px;
   background-color: rgb(240, 243, 248);
@@ -36,7 +38,7 @@
 
 .btnAdd {
   background-color: rgba(35, 147, 247, 1);
-  width: 171px;
+  width: 50%;
   height: 44px;
   border-radius: 4.5px;
   color: white;
@@ -45,7 +47,7 @@
 
 .btnEdit {
   background-color: rgb(243, 155, 23);
-  width: 171px;
+  width: 50%;
   height: 44px;
   border-radius: 4.5px;
   color: white;
@@ -55,7 +57,7 @@
 .inputCategory {
   margin-top: 12px;
   margin-bottom: 12px;
-  width: 344px;
+  width: 100%;
   height: 44px;
   border-radius: 4.5px;
   background-color: rgb(240, 243, 248);
@@ -66,8 +68,12 @@ input[type="text"]::placeholder {
   padding-left: 7px;
 }
 
+input[type="number"]::placeholder {
+  padding-left: 7px;
+}
+
 select {
-  padding-left: 10px;
+  padding-left: 6px;
 }
 
 .messageInput {
@@ -77,7 +83,8 @@ select {
   background-color: rgb(249, 196, 196);
   color: rgb(188, 3, 3);
   border: 1px solid rgb(188, 3, 3);
-  margin-left: 15px;
+  margin: auto;
   height: 44px;
-  width: 368px;
+  width: 94%;
+  max-width: 368px;
 }
