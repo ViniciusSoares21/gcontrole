@@ -25,7 +25,7 @@ function NavBar() {
         <h1>gcontrole</h1>
         {!sideBar ? (
           <button 
-          style={{ width: 30, height: 30, background: 'None', left: '90%', position: 'absolute' }}
+          style={{ width: 30, height: 30, background: 'None', left: '92%', position: 'absolute' }}
           onClick={ showSideBar }
           >
             <img style={{ width: 30, height: 30 }} src={imgListSvg} alt="img list" />
