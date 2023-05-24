@@ -11,11 +11,14 @@
 
 .containerWithSideBar {
   display: flex;
+  width: 94%;
+  max-width: 452px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .containerWithSideBar h1 {
   margin-top: 15px;
-  margin-left: 18px;
 }
 
 .line {
@@ -33,11 +36,22 @@
   box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.42);
   width:  250px;
   height: 100%;
-  margin-left: 150px;
+  left: 48%;
   animation: showSidebar .3s ease;
   z-index: 9999;
 }
 
+@media (max-width: 450px) {
+  .sideBar {
+    left: 44%;
+  }
+}
+
+@media (max-width: 410px) {
+  .sideBar {
+    left: 40%;
+  }
+}
 
 @keyframes showSidebar {
   from {
