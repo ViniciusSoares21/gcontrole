@@ -1,7 +1,6 @@
 import React from 'react'
 import NavBar from '../components/NavBar'
 import styles from './Donation.module.css'
-import Footer from '../components/Footer'
 
 function Donation() {
   return (
