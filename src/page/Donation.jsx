@@ -1,6 +1,7 @@
 import React from 'react'
 import NavBar from '../components/NavBar'
 import styles from './Donation.module.css'
+import Footer from '../components/Footer'
 
 function Donation() {
   return (
@@ -13,12 +14,13 @@ function Donation() {
         href="https://nubank.com.br/pagar/hkpd8/HBTiit1ewM"
         target="_blank" 
         rel="noopener noreferrer">
-      <button
+      <p
         className={ styles.donation}
       >
         CONTRIBUIR
-      </button>
+      </p>
       </a>
+      <Footer />
     </main>
   )
 }
