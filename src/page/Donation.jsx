@@ -8,7 +8,13 @@ function Donation() {
     <main>
       <NavBar />
       <p className={styles.paragraph}>
-      Essa é uma página para apoiar o site !!! 
+        Estamos buscando apoio para manter nosso site em funcionamento. 
+        Sua doação pode ajudar a cobrir nossos gastos e garantir que continuemos.
+      </p>
+      <p 
+        style={{textAlign: 'center', fontWeight: 800}}
+      >
+        Seu apoio é fundamental, somos gratos por sua contribuição!
       </p>
       <a 
         href="https://nubank.com.br/pagar/hkpd8/HBTiit1ewM"
@@ -20,7 +26,6 @@ function Donation() {
         CONTRIBUIR
       </p>
       </a>
-      <Footer />
     </main>
   )
 }
