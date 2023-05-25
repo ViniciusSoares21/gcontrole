@@ -20,14 +20,14 @@ function AnalyticsPayment() {
       <Dashboard />
       <ChartPayment />
       <CardBalance
-        title="SAÌDA"
-        data={typePayments}
-        valueBalance='sumDebitNegative'
-      />
-      <CardBalance
         title="ENTRADA"
         data={typePayments}
         valueBalance='sumDebitPositive'
+      />
+      <CardBalance
+        title="SAÌDA"
+        data={typePayments}
+        valueBalance='sumDebitNegative'
       />
       <Footer />
     </main>
