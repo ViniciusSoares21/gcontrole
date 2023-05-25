@@ -1,9 +1,10 @@
 .container {
   display: flex;
   flex-direction: column;
-  width: 369px;
+  width: 94%;
+  max-width: 452px;
   height: 108px;
-  margin-left: 16px;
+  margin: auto;
   margin-top: 18px;
   align-items: center;
   background-color: white;
