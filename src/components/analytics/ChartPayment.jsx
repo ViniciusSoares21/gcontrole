@@ -22,11 +22,10 @@ function ChartPayment(payment) {
   const options = {
     title:'QUANTIDADE POR PAGAMENTO',
     titleTextStyle: { fontSize: 15 },
-    width: 366,
     height: 200,
     pieHole: 0.6,
     is3D: false,
-    chartArea: { left:35, top: 35, width: 350, height: 150 },
+    chartArea: { left:35, top: 35, height: 150 },
     legend: {
       alignment: 'center', 
       position: 'right', 

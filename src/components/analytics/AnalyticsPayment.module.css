@@ -1,4 +1,6 @@
 .chart {
-  margin-left: 18px;
   margin-top: 25px;
+  width: 94%;
+  margin: 0 auto;
+  max-width: 452px;
 }

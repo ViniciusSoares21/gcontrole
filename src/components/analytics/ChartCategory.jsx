@@ -15,7 +15,6 @@ function ChartCategory() {
   ];
 
   const options = {
-    width: 366,
     height: 200,
     legend: { position: 'none' },
     chartArea: { width: 280, height: 130, top: 20 },
