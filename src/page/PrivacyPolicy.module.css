@@ -1,0 +1,29 @@
+.container {
+  width: 94%;
+  margin: auto;
+  color: rgb(68, 68, 68);
+  max-width: 480px;
+}
+
+.container h2, .container h3, .container p {
+  margin-bottom: 15px;
+  font-family: Montserrat, sans-serif;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 20px;
+  color: #576d96;
+  margin-top: 50px;
+}
+
+ul {
+  margin: 0;
+  padding: 10px;
+}
+
+li {
+  list-style-type: disc;
+  margin-bottom: 10px;
+  margin-left: 12px;
+}
