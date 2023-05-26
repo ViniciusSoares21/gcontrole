@@ -3,7 +3,7 @@ import { Chart } from "react-google-charts";
 import styles from './AnalyticsPayment.module.css'
 import balance from '../../utils/balancePayments';
 
-function ChartPayment(payment) {
+function ChartPaymentExit(payment) {
 
   const creditQty = balance('Cartão de crédito').sumDebitNegative.replace(',', '.');
   const debitQty = balance('Cartão de débito').sumDebitNegative.replace(',', '.');
@@ -20,19 +20,9 @@ function ChartPayment(payment) {
   ];
 
   const options = {
-    title:'QUANTIDADE POR PAGAMENTO',
-    titleTextStyle: { fontSize: 15 },
     height: 200,
-    pieHole: 0.6,
-    is3D: false,
-    chartArea: { left:35, top: 35, height: 150 },
-    legend: {
-      alignment: 'center', 
-      position: 'right', 
-      textStyle: {color: 'black', fontSize: 10 },
-    },
-    pieSliceTextStyle: { fontSize: 10},
-
+    legend: { position: 'none' },
+    chartArea: { width: 280, height: 130, top: 20 },
   };
 
   return (
@@ -46,4 +36,4 @@ function ChartPayment(payment) {
   )
 }
 
-export default ChartPayment
+export default ChartPaymentExit;

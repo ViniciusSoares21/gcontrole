@@ -1,10 +1,11 @@
 import React from 'react'
 import NavBar from '../components/NavBar'
-import ChartPayment from '../components/analytics/ChartPayment'
+import ChartPaymentEntry from '../components/analytics/ChartPaymentEntry'
 import Footer from '../components/Footer'
 import Dashboard from '../components/analytics/Dashboard'
 import LiquidBalance from '../components/analytics/LiquidBalance'
 import CardBalance from '../components/analytics/CardBalance'
+import ChartPaymentExit from '../components/analytics/ChartPaymentExit'
 
 function AnalyticsPayment() {
   const typePayments = [
@@ -18,12 +19,13 @@ function AnalyticsPayment() {
       <NavBar />
       <LiquidBalance />
       <Dashboard />
-      <ChartPayment />
+      <ChartPaymentEntry />
       <CardBalance
         title="ENTRADA"
         data={typePayments}
         valueBalance='sumDebitPositive'
       />
+      <ChartPaymentExit />
       <CardBalance
         title="SAÌDA"
         data={typePayments}
