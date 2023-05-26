@@ -70,7 +70,7 @@ function WalletForm() {
     const index = cards.findIndex((item) => item.id === id);
     setPositionInList(index)
     setIdCard(edit.id)
-    setPrice(edit.price)
+    setPrice(Number(edit.price.replace(',', '.')))
     setPayment(edit.payment)
     setDescription(edit.description)
     setCategory(edit.category)
