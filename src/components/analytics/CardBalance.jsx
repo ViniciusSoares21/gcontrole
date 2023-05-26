@@ -31,7 +31,7 @@ function CardBalance({title, data, valueBalance}) {
                 `R$ ${balancePayment(item.type)[valueBalance]}`
               ) : (
                 item.type === 'Salário' ? `R$ ${balanceCategory(item.type).sumDebit}` : (
-                  `-R$ ${balanceCategory(item.type).sumDebit}`
+                  `- R$ ${balanceCategory(item.type).sumDebit}`
                 )
               )
             }
