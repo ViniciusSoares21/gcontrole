@@ -6,6 +6,8 @@ import flistImg from '../images/list.jpg'
 function Content() {
   return (
     <section className={styles.container}>
+      <script async="async" data-cfasync="false" src="//pl19565924.highrevenuegate.com/bd7c3cb4b895934eec2608fefe46f5b9/invoke.js"></script>
+      <div id="container-bd7c3cb4b895934eec2608fefe46f5b9"></div>
       <h1>
         Experimente GRATUITAMENTE o GCONTROLE e descubra como gerenciar suas Finanças Pessoais de forma prática,
         para alcançar seus objetivos. Descubra o que nossa ferramenta pode oferecer para você agora!
