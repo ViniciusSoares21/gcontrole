@@ -15,6 +15,18 @@ function AnalyticsCategory() {
     {color: 'rgba(255, 232, 23, 1)', type: 'Lazer'}, 
     {color: 'rgba(234, 22, 187, 1)', type: 'Compras'}
   ]
+
+  React.useEffect(() => {
+    const script = document.createElement('script');
+    script.src = "//pl19568356.highrevenuegate.com/ee13b59cba45f03964b893693228ebb5/invoke.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <main>
       <NavBar />
@@ -25,6 +37,7 @@ function AnalyticsCategory() {
         title="VISÃO GERAL"
         data={typeCategory}
       />
+      <div id="container-ee13b59cba45f03964b893693228ebb5"></div>
       <Footer />
     </main>
   )
