@@ -4,7 +4,7 @@ import formImg from '../images/form.jpg'
 import flistImg from '../images/list.jpg'
 
 function Content() {
-  React.useEffect(() => {
+  /* React.useEffect(() => {
     const script = document.createElement('script');
     script.src = "//pl19565924.highrevenuegate.com/bd7c3cb4b895934eec2608fefe46f5b9/invoke.js";
     script.async = true;
@@ -13,11 +13,11 @@ function Content() {
     return () => {
       document.body.removeChild(script);
     };
-  }, []);
+  }, []); */
    
   return (
     <section className={styles.container}>
-      <div id="container-bd7c3cb4b895934eec2608fefe46f5b9"></div>
+      {/* <div id="container-bd7c3cb4b895934eec2608fefe46f5b9"></div> */}
       <h1>
         Experimente GRATUITAMENTE o GCONTROLE e descubra como gerenciar suas Finanças Pessoais de forma prática,
         para alcançar seus objetivos. Descubra o que nossa ferramenta pode oferecer para você agora!

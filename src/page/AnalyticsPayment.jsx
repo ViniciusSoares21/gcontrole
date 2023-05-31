@@ -15,7 +15,7 @@ function AnalyticsPayment() {
     {color: 'rgba(246, 119, 47, 1)', type: 'Boleto'}
   ];
 
-  React.useEffect(() => {
+  /* React.useEffect(() => {
     const script = document.createElement('script');
     script.src = "//pl19568355.highrevenuegate.com/3fca5f21c47ea8ad906876c333d1a553/invoke.js";
     script.async = true;
@@ -24,7 +24,7 @@ function AnalyticsPayment() {
     return () => {
       document.body.removeChild(script);
     };
-  }, []);
+  }, []); */
   return (
     <main>
       <NavBar />
@@ -42,7 +42,7 @@ function AnalyticsPayment() {
         data={typePayments}
         valueBalance='sumDebitNegative'
       />
-      <div id="container-3fca5f21c47ea8ad906876c333d1a553"></div>
+      {/* <div id="container-3fca5f21c47ea8ad906876c333d1a553"></div> */}
       <Footer />
     </main>
   )
