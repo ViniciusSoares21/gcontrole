@@ -16,7 +16,7 @@ function AnalyticsCategory() {
     {color: 'rgba(234, 22, 187, 1)', type: 'Compras'}
   ]
 
-  /* React.useEffect(() => {
+  React.useEffect(() => {
     const script = document.createElement('script');
     script.src = "//pl19568356.highrevenuegate.com/ee13b59cba45f03964b893693228ebb5/invoke.js";
     script.async = true;
@@ -25,7 +25,7 @@ function AnalyticsCategory() {
     return () => {
       document.body.removeChild(script);
     };
-  }, []); */
+  }, []);
 
   return (
     <main>
@@ -37,7 +37,7 @@ function AnalyticsCategory() {
         title="VISÃO GERAL"
         data={typeCategory}
       />
-      {/* <div id="container-ee13b59cba45f03964b893693228ebb5"></div> */}
+      <div id="container-ee13b59cba45f03964b893693228ebb5"></div>
       <Footer />
     </main>
   )
